@@ -7,15 +7,23 @@ import { Product } from './product.model';
 export class CategoryRepository implements OnInit {
   private categories: Category[] = [];
 
-  constructor(private restService: RestService) {}
+  constructor(private restService: RestService) {
+    this.restService
+    .getCategories()
+    .subscribe((categories) => (this.categories = categories));
+
+  }
 
   ngOnInit(): void {
-    this.restService
-      .getCategories()
-      .subscribe((categories) => (this.categories = categories));
+   
   }
 
   getCategory(id: number): Product {
     return this.categories.find((i) => i.id === id);
+  }
+
+  getCategories() : Category[]{
+
+    return  this.categories;
   }
 }
