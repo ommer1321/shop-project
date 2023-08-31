@@ -12,6 +12,9 @@ import { Category } from '../model/category.model';
 export class ShopComponent {
 
   public activatedCategory: Category= null;
+  public selectedPage :number = 2 ;
+  public productsPerPage:number = 3 ;
+
 
   constructor(
     private productRepository:ProductRepository,
@@ -21,14 +24,21 @@ export class ShopComponent {
 
   }
 
-  get getProducts():Product[]{
+  get products():Product[]{
+    let index =( this.selectedPage-1) * this.productsPerPage;
+    console.log(index);
 
-    return this.productRepository.getProducts(this.activatedCategory);
+    
+    return this.productRepository
+    .getProducts(this.activatedCategory)
+    .slice(index ,index+this.productsPerPage);
+   
 
+    
   }
 
   
-  get getCategories():Category[]{
+  get categories():Category[]{
 
     return this.categoryRepository.getCategories();
     

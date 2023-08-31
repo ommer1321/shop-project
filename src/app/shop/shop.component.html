@@ -14,7 +14,7 @@
         </a>
 
         <a
-          *ngFor="let c of getCategories; let index = index"
+          *ngFor="let c of categories; let index = index"
           (click)="activeCategory(c)"
           href="#{{ c.id }}"
           [class.active]="c == activatedCategory"
@@ -26,7 +26,7 @@
 
     <div class="col-8">
       <div class="row">
-        <div class="col-4 mt-3" *ngFor="let p of getProducts; let i = index">
+        <div class="col-4 mt-3" *ngFor="let p of products; let i = index">
           <div class="card" style="width: 18rem">
             <img
               src="
