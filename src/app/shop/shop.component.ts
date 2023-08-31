@@ -23,7 +23,7 @@ export class ShopComponent {
 
   get getProducts():Product[]{
 
-    return this.productRepository.getProducts();
+    return this.productRepository.getProducts(this.activatedCategory);
 
   }
 
@@ -35,9 +35,9 @@ export class ShopComponent {
   }
 
   activeCategory(newCategory?:Category){
+
     this.activatedCategory = newCategory;
-    console.log(newCategory);
-    
+    this.productRepository.getProducts(this.activatedCategory );
   }
 
 }
