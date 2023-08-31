@@ -12,9 +12,8 @@ import { Category } from '../model/category.model';
 export class ShopComponent {
 
   public activatedCategory: Category= null;
-  public selectedPage :number = 2 ;
+  public selectedPage :number = 1 ;
   public productsPerPage:number = 3 ;
-
 
   constructor(
     private productRepository:ProductRepository,
@@ -24,9 +23,9 @@ export class ShopComponent {
 
   }
 
+
   get products():Product[]{
     let index =( this.selectedPage-1) * this.productsPerPage;
-    console.log(index);
 
     
     return this.productRepository
@@ -48,6 +47,24 @@ export class ShopComponent {
 
     this.activatedCategory = newCategory;
     this.productRepository.getProducts(this.activatedCategory );
+    
   }
+
+
+  changePage(p:number){
+
+    this.selectedPage = p;
+
+
+  }
+
+  
+  get pageNumbers(): number[] {
+    return Array(Math.ceil(this.productRepository.getProducts().length/this.productsPerPage))
+    .fill(0)
+    .map((v,i)=>i+1);
+    
+   }
+
 
 }
