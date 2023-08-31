@@ -10,6 +10,9 @@ import { Category } from '../model/category.model';
 
 })
 export class ShopComponent {
+
+  public activatedCategory: Category= null;
+
   constructor(
     private productRepository:ProductRepository,
     private categoryRepository:CategoryRepository,
@@ -30,4 +33,11 @@ export class ShopComponent {
     return this.categoryRepository.getCategories();
     
   }
+
+  activeCategory(newCategory?:Category){
+    this.activatedCategory = newCategory;
+    console.log(newCategory);
+    
+  }
+
 }
