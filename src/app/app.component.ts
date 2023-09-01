@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'root',
-  template:`<app-shop></app-shop>
+  template:`
+  
+  <router-outlet></router-outlet>
+  <!-- <app-shop></app-shop> -->
   
 
   `,

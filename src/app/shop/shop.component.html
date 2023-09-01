@@ -3,8 +3,8 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-3">
+      <app-shop-summary></app-shop-summary>
       <div class="list-group mt-3">
-    
     <!--  activeCategory() boş atayıp içini boşaltıyoruz -->
         <a
           (click)="activeCategory()"
@@ -46,7 +46,7 @@
             </ul>
             <div class="card-body">
               <a href="#" class="btn btn-primary btn-sm mx-2">Details</a>
-              <a href="#" class="btn btn-primary btn-sm">Add to cart</a>
+              <button (click)="addToCart(p)" class="btn btn-primary btn-sm">Add to cart</button>
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { ProductRepository } from '../model/product.reporsitory';
 import { CategoryRepository } from '../model/category.repository';
 import { Product } from '../model/product.model';
 import { Category } from '../model/category.model';
+import { Cart } from '../model/cart.model';
 
 @Component({
   selector: 'app-shop',
@@ -18,6 +19,7 @@ export class ShopComponent {
   constructor(
     private productRepository:ProductRepository,
     private categoryRepository:CategoryRepository,
+    private cart:Cart,
   ){
 
 
@@ -66,5 +68,13 @@ export class ShopComponent {
     
    }
 
+
+   addToCart(product:Product){
+
+    if(product){
+      this.cart.addItem(product);
+    }
+
+   }
 
 }

@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { CartItem } from './cartItem.model';
 import { Product } from './product.model';
 
-@Injectable()
+@Injectable({providedIn:'root'})
+
 export class Cart {
   public items: CartItem[] = [];
   public itemCount: number = 0;
