@@ -22,11 +22,18 @@
             <!-- <td>Görsel gelebilir</td> -->
             <td>{{ item.product.name }}</td>
             <td>{{ item.product.price }}</td>
-            <td>{{ item.quantity }}</td>
+            <td>
+              <input type="number"
+                class="form-control"
+                style="width: 100px"
+                [value]="item.quantity"
+                (change)="cart.updateQuantity(item.product,$any($event.target).value)"
+              />
+            </td>
             <td>{{ item.quantity * item.product.price }} ₺</td>
             <td>
               <button
-                id="{{ item.product.id }}"
+              (click)="cart.removeItem(item.product.id)"
                 class="btn btn-danger btn-sm text-white"
               >
                 X
@@ -61,8 +68,12 @@
       </tbody>
     </table>
 
-    <button routerLink="/shop" class="btn btn-primary btn-sm mx-2">Alışverişe Devam Et</button>
-    <button  routerLink="/checkout"  class="btn btn-primary btn-sm">Alışverişi Tamamla</button>
+    <button routerLink="/shop" class="btn btn-primary btn-sm mx-2">
+      Alışverişe Devam Et
+    </button>
+    <button routerLink="/checkout" class="btn btn-primary btn-sm">
+      Alışverişi Tamamla
+    </button>
     <!-- bitti burada kaldım  -->
   </div>
 </div>

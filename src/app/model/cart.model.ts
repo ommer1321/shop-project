@@ -35,15 +35,15 @@ export class Cart {
 
   removeItem(id: number) {
     let index = this.items.findIndex((i) => i.product.id == id);
-    if (index) {
+   
       this.items.splice(index, 1);
 
       this.calculate();
-    }
+   
   }
 
-  updateQuantity(prouduct: Product, quantity: number) {
-    let item = this.items.find((i) => i.product.id == prouduct.id);
+  updateQuantity(product: Product, quantity: number) {
+    let item = this.items.find((i) => i.product.id == product.id);
 
     if (item && item != undefined) {
       item.quantity = quantity;
