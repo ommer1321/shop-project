@@ -4,6 +4,7 @@ import { CategoryRepository } from '../model/category.repository';
 import { Product } from '../model/product.model';
 import { Category } from '../model/category.model';
 import { Cart } from '../model/cart.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop',
@@ -20,6 +21,7 @@ export class ShopComponent {
     private productRepository:ProductRepository,
     private categoryRepository:CategoryRepository,
     private cart:Cart,
+    private router:Router,
   ){
 
 
@@ -73,6 +75,7 @@ export class ShopComponent {
 
     if(product){
       this.cart.addItem(product);
+      this.router.navigateByUrl('/cart')
     }
 
    }

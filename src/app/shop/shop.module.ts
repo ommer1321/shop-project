@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ShopSummaryComponent } from './shop-summary/shop-summary.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CartDetailComponent } from './cart-detail/cart-detail.component';
+import { RouterLink } from '@angular/router';
 
 
 
@@ -17,12 +18,14 @@ import { CartDetailComponent } from './cart-detail/cart-detail.component';
     NavbarComponent,
     ShopSummaryComponent,
     CheckoutComponent,
-    CartDetailComponent
+    CartDetailComponent,
+    
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
+    RouterLink,
   ],
   exports:[ShopComponent,ShopSummaryComponent],
   providers: [ModelModule],

@@ -1,1 +1,68 @@
-<p>cart-detail works!</p>
+<navbar></navbar>
+
+<div class="row m-5 p-2">
+  <h1>Alışveriş Sepetiniz</h1>
+
+  <div class="col-7 my-3">
+    <ng-container *ngIf="cart.itemCount > 0"
+      ><table class="table table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Ürün</th>
+            <th>Fiyat</th>
+            <th>Miktar</th>
+            <th>Toplam</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cart.items">
+            <td></td>
+            <!-- <td>Görsel gelebilir</td> -->
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.product.price }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.quantity * item.product.price }} ₺</td>
+            <td>
+              <button
+                id="{{ item.product.id }}"
+                class="btn btn-danger btn-sm text-white"
+              >
+                X
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table></ng-container
+    >
+    <ng-container *ngIf="cart.itemCount == 0">
+      <div class="alert alert-warning">
+        Sepetinizde ürün yok
+
+        <br />
+        <a routerLink="/shop" routerLinkActive="router-link-active"
+          >Alışverişe devam etmek için tıklayınız..</a
+        >
+      </div>
+    </ng-container>
+  </div>
+  <div class="col-4 alert mx-3 my-3">
+    <h2>
+      Alışveriş Özeti
+      <hr />
+    </h2>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>Toplam:</td>
+          <td>{{ cart.total }} ₺</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button routerLink="/shop" class="btn btn-primary btn-sm mx-2">Alışverişe Devam Et</button>
+    <button  routerLink="/checkout"  class="btn btn-primary btn-sm">Alışverişi Tamamla</button>
+    <!-- bitti burada kaldım  -->
+  </div>
+</div>
