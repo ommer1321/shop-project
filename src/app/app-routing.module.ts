@@ -14,8 +14,8 @@ const routes: Routes = [];
       { path: 'shop', component:ShopComponent },
       { path: 'checkout', component:CheckoutComponent },
       { path: 'cart', component:CartDetailComponent },
-      
-      
+      { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+
       { path: '**', component: ShopComponent },
     ]),
   ],
