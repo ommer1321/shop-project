@@ -1,1 +1,68 @@
-<p>checkout works!</p>
+<navbar></navbar>
+
+<div class="row m-5 p-2">
+  <div *ngIf="orderSent==true" class="col-12">
+    <h1>
+      <span style="color: green">Tebrikler! </span> Siparişiniz Tamamlandı...
+    </h1>
+    <br />
+
+    <a routerLink="/shop" routerLinkActive="router-link-active"
+      >Alışverişe devam etmek için tıklayınız..</a
+    >
+  </div>
+
+  <div *ngIf="orderSent==false" class="col-12">
+
+    <form [formGroup]="frm" (submit)="submit_click()" >
+        
+        
+        <input type="text" class="form-control" placeholder="name" formControlName="name" />
+        
+        <span *ngIf="!name.valid && (name.dirty || name.touched)">
+            <!-- {{name.errors | json}} hataları basar -->
+            <small class="text-danger">Bu Alan Boş Geçilemez</small>
+        </span>
+        <br />
+
+        <input type="text" class="form-control" placeholder="address" formControlName="address" />
+     
+        <span *ngIf=" !frm.get('address').valid && (frm.get('address').dirty || frm.get('address').touched)">
+            <!-- {{name.errors | json}} hataları basar -->
+            <small class="text-danger">Bu Alan Boş Geçilemez</small>
+        </span>
+        <br />
+        
+        <input type="text" class="form-control" placeholder="city" formControlName="city" />
+        
+        <span *ngIf=" !frm.get('city').valid && (frm.get('city').dirty || frm.get('city').touched)">
+            <!-- {{name.errors | json}} hataları basar -->
+            <small class="text-danger">Bu Alan Boş Geçilemez</small>
+        </span>
+        <br />
+        
+        <input type="text" class="form-control" placeholder="phone" formControlName="phone" />
+        
+        <span *ngIf=" !frm.get('phone').valid && (frm.get('phone').dirty || frm.get('phone').touched)">
+            <!-- {{name.errors | json}} hataları basar -->
+            <small class="text-danger">Bu Alan Boş Geçilemez</small>
+        </span>
+        <br />
+        
+        <input type="text" class="form-control" placeholder="email" formControlName="email" />
+        
+        <span *ngIf=" !frm.get('email').valid && (frm.get('email').dirty || frm.get('email').touched)">
+            <!-- {{name.errors | json}} hataları basar -->
+            <small class="text-danger">Bu Alan Boş Geçilemez</small>
+        </span>
+        <br />
+
+        <button type="submit" class="btn btn-primary"> Siparişi Tamamla</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- <form action="">
+
+</form> -->

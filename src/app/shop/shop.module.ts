@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ModelModule } from '../model/model.module';
 import { ShopComponent } from './shop.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ShopSummaryComponent } from './shop-summary/shop-summary.component';
 import { CheckoutComponent } from './checkout/checkout.component';
@@ -26,6 +26,7 @@ import { RouterLink } from '@angular/router';
     BrowserModule,
     FormsModule,
     RouterLink,
+    ReactiveFormsModule
   ],
   exports:[ShopComponent,ShopSummaryComponent],
   providers: [ModelModule],

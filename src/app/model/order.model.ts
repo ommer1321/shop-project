@@ -21,7 +21,7 @@ constructor(public cart:Cart){
 }
 
 
-clear(){
+clearOrder(){
 
     this.id = null;
     this.name = null;
