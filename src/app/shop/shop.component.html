@@ -17,26 +17,39 @@
         <option value="5">5 Ürün</option>
       </select>
     </div>
-  
 
     <div class="col-8">
-  
-        <div class="alert alert-info" style="opacity: 0.9">
-          <span style="opacity: 1"
-            ><b>{{ selectedProducts.length }}</b> Ürün Bulundu</span
-          >
-        </div>
-     
-    <product-list [products]="products"></product-list>
- 
-    <ul class="pagination mt-3">
-      <li class="page-item"><a class="page-link">Önceki</a></li>
-      <li *ngFor="let page of pageNumbers" class="page-item">
-        <a class="page-link" (click)="changePage(page)">{{ page }}</a>
-      </li>
-      <li class="page-item"><a class="page-link">Sonraki</a></li>
-    </ul>
-  </div>
- 
+      <div *ngIf="selectedProduct" class="alert alert-light">
+        <h4>Ürün Detayları</h4>
+        <hr />
+        id : {{ selectedProduct.id }}<br />
+        Ürün Adı : {{ selectedProduct.name }}<br />
+
+        Ürün Açıklaması : {{ selectedProduct.description }}<br />
+
+        Ürün Fiyatı : {{ selectedProduct.price }} ₺
+        <br>
+        <button (click) = "selectedProductCancel()" class=" mt-3 btn btn-danger btn-sm">Kapat</button>
+      </div>
+
+      <div class="alert alert-info" style="opacity: 0.9">
+        <span style="opacity: 1"
+          ><b>{{ selectedProducts.length }}</b> Ürün Bulundu</span
+        >
+      </div>
+
+      <product-list
+        [products]="products"
+        (selectedProduct)="getSelectedProduct($event)"
+      ></product-list>
+
+      <ul class="pagination mt-3">
+        <li class="page-item"><a class="page-link">Önceki</a></li>
+        <li *ngFor="let page of pageNumbers" class="page-item">
+          <a class="page-link" (click)="changePage(page)">{{ page }}</a>
+        </li>
+        <li class="page-item"><a class="page-link">Sonraki</a></li>
+      </ul>
+    </div>
   </div>
 </div>

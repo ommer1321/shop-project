@@ -3,16 +3,17 @@
   
       <div class="col-4 mt-3" *ngFor="let p of products; let i = index">
         <div class="card" style="width: 18rem">
-          <img
+          <!-- <img
             src="
              
               "
             class="card-img-top"
             alt="..."
-          />
+          /> -->
           <div class="card-body">
             <h5 class="card-title">{{ i + 1 }} - {{ p.name }}</h5>
-            <p class="card-text">{{ p.description }}</p>
+            <hr>
+            <p class="card-text"><b>Açıklama :</b> {{ p.description }}</p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">₺ {{ p.price }}</li>
@@ -20,9 +21,9 @@
             <li class="list-group-item">A third item</li>
           </ul>
           <div class="card-body">
-            <a href="#" class="btn btn-primary btn-sm mx-2">Details</a>
+            <a (click)="productDetailsClick(p)" class="btn btn-primary btn-sm mx-2">Detaylar</a>
             <button (click)="addToCart(p)" class="btn btn-primary btn-sm">
-              Add to cart
+             Sepete Ekle
             </button>
           </div>
         </div>

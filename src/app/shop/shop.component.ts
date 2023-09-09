@@ -15,6 +15,7 @@ export class ShopComponent {
   public selectedPage: number = 1;
   public productsPerPage: number = 3;
   public selectedProducts: Product[] = [];
+  public selectedProduct:Product;
 
   constructor(
     private productRepository: ProductRepository,
@@ -59,6 +60,15 @@ export class ShopComponent {
   getCategory(category:Category){
 
     this.activatedCategory = category;
+
+  }
+  getSelectedProduct(product:Product){
+
+    this.selectedProduct =product;
+
+  }
+  selectedProductCancel(){
+    this.selectedProduct =null
 
   }
 }

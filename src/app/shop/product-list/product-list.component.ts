@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cart } from 'src/app/model/cart.model';
 import { Product } from 'src/app/model/product.model';
@@ -11,7 +11,8 @@ import { Product } from 'src/app/model/product.model';
 export class ProductListComponent {
 
   @Input() products : Product[] = [];
-
+  
+  @Output() selectedProduct = new EventEmitter<Product>();
 
   constructor(
     public cart:Cart,
@@ -29,6 +30,10 @@ export class ProductListComponent {
     }
   }
 
-
+  productDetailsClick(product:Product){
+    console.log(this.selectedProduct );
+    this.selectedProduct.emit(product);
+    
+  }
 
 }
