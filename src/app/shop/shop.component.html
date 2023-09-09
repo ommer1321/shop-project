@@ -5,10 +5,10 @@
     <div class="col-3">
       <app-shop-summary></app-shop-summary>
       <div class="list-group mt-3">
-    <!--  activeCategory() boş atayıp içini boşaltıyoruz -->
+        <!--  activeCategory() boş atayıp içini boşaltıyoruz -->
         <a
           (click)="activeCategory()"
-          href="#"
+       
           class="list-group-item list-group-item-action"
           >Tüm Kategoriler
         </a>
@@ -16,16 +16,29 @@
         <a
           *ngFor="let c of categories; let index = index"
           (click)="activeCategory(c)"
-          href="#{{ c.id }}"
+       
           [class.active]="c == activatedCategory"
           class="list-group-item list-group-item-action"
           >{{ index }}-{{ c.name }}
         </a>
       </div>
+
+      <select class="form-select mt-3"  aria-label="Default select example" 
+      (change)="changePageSize($any($event.target).value)"
+      [value]="productsPerPage"
+      >
+        <option value="1">1 Ürün</option>
+        <option value="3">3 Ürün</option>
+        <option value="5">5 Ürün</option>
+      </select>
+
     </div>
 
     <div class="col-8">
       <div class="row">
+        <div class="alert alert-info" style="opacity: 0.9">
+          <span style="opacity: 1"><b>{{selectedProducts.length}}</b> Ürün Bulundu</span>
+        </div>
         <div class="col-4 mt-3" *ngFor="let p of products; let i = index">
           <div class="card" style="width: 18rem">
             <img
@@ -46,19 +59,25 @@
             </ul>
             <div class="card-body">
               <a href="#" class="btn btn-primary btn-sm mx-2">Details</a>
-              <button (click)="addToCart(p)" class="btn btn-primary btn-sm">Add to cart</button>
+              <button (click)="addToCart(p)" class="btn btn-primary btn-sm">
+                Add to cart
+              </button>
             </div>
           </div>
         </div>
       </div>
-    
-        <ul class="pagination mt-3">
-          <li class="page-item"><a class="page-link" href="#">Önceki</a></li>
-          <li *ngFor="let page of pageNumbers" class="page-item"><a class="page-link" (click)="changePage(page)" href="#">{{page}}</a></li>
-          <li class="page-item"><a class="page-link" href="#">Sonraki</a></li>
-        </ul>
-      
+
+      <ul class="pagination mt-3">
+        <li class="page-item"><a class="page-link">Önceki</a></li>
+        <li *ngFor="let page of pageNumbers" class="page-item">
+          <a class="page-link" 
+          (click)="changePage(page)"
+          >{{
+            page
+          }}</a>
+        </li>
+        <li class="page-item"><a class="page-link" >Sonraki</a></li>
+      </ul>
     </div>
-    
   </div>
 </div>
