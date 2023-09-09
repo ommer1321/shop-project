@@ -9,6 +9,8 @@ import { ShopSummaryComponent } from './shop-summary/shop-summary.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CartDetailComponent } from './cart-detail/cart-detail.component';
 import { RouterLink } from '@angular/router';
+import { ProductListComponent } from './product-list/product-list.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 
 
@@ -19,6 +21,8 @@ import { RouterLink } from '@angular/router';
     ShopSummaryComponent,
     CheckoutComponent,
     CartDetailComponent,
+    ProductListComponent,
+    CategoryListComponent,
     
   ],
   imports: [

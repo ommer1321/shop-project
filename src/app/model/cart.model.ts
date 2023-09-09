@@ -25,7 +25,8 @@ export class Cart {
   }
 
   calculate() {
-    (this.itemCount = 0), (this.total = 0);
+    (this.itemCount = 0);
+    (this.total = 0);
 
     this.items.forEach((item) => {
       this.itemCount += item.quantity;

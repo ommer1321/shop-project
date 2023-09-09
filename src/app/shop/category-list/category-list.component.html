@@ -1,0 +1,16 @@
+<div class="list-group mt-3">
+    <!--  activeCategory() boş atayıp içini boşaltıyoruz -->
+    <a
+      (click)="activeCategory()"
+      class="list-group-item list-group-item-action"
+      >Tüm Kategoriler
+    </a>
+
+    <a
+      *ngFor="let c of categories; let index = index"
+      (click)="activeCategory(c)"
+      [class.active]="c == activatedCategory"
+      class="list-group-item list-group-item-action"
+      >{{ index }}-{{ c.name }}
+    </a>
+  </div>

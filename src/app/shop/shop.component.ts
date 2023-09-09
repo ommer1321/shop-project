@@ -18,10 +18,7 @@ export class ShopComponent {
 
   constructor(
     private productRepository: ProductRepository,
-    private categoryRepository: CategoryRepository,
-    private cart: Cart,
-    private router: Router
-  ) {}
+   ) {}
 
   get products(): Product[] {
     let index = (this.selectedPage - 1) * this.productsPerPage;
@@ -33,18 +30,10 @@ export class ShopComponent {
     return this.selectedProducts.slice(index, index + this.productsPerPage);
   }
 
-  get categories(): Category[] {
-    return this.categoryRepository.getCategories();
-  }
 
-  activeCategory(newCategory?: Category) {
-    this.activatedCategory = newCategory;
-    this.productRepository.getProducts(this.activatedCategory);
-  }
 
-  changePage(p: number) {
-    this.selectedPage = p;
-  }
+
+
 
   get pageNumbers(): number[] {
     return Array(
@@ -56,12 +45,6 @@ export class ShopComponent {
       .map((v, i) => i + 1);
   }
 
-  addToCart(product: Product) {
-    if (product) {
-      this.cart.addItem(product);
-      this.router.navigateByUrl('/cart');
-    }
-  }
 
   changePageSize(size:number){
 
@@ -69,6 +52,13 @@ export class ShopComponent {
     this.changePage(1);
 
   }
+  
+  changePage(p: number) {
+    this.selectedPage = p;
+  }
+  getCategory(category:Category){
 
+    this.activatedCategory = category;
 
+  }
 }

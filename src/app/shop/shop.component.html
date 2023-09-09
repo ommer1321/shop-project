@@ -4,80 +4,39 @@
   <div class="row">
     <div class="col-3">
       <app-shop-summary></app-shop-summary>
-      <div class="list-group mt-3">
-        <!--  activeCategory() boş atayıp içini boşaltıyoruz -->
-        <a
-          (click)="activeCategory()"
-       
-          class="list-group-item list-group-item-action"
-          >Tüm Kategoriler
-        </a>
+      <category-list (category)="getCategory($event)"></category-list>
 
-        <a
-          *ngFor="let c of categories; let index = index"
-          (click)="activeCategory(c)"
-       
-          [class.active]="c == activatedCategory"
-          class="list-group-item list-group-item-action"
-          >{{ index }}-{{ c.name }}
-        </a>
-      </div>
-
-      <select class="form-select mt-3"  aria-label="Default select example" 
-      (change)="changePageSize($any($event.target).value)"
-      [value]="productsPerPage"
+      <select
+        class="form-select mt-3"
+        aria-label="Default select example"
+        (change)="changePageSize($any($event.target).value)"
+        [value]="productsPerPage"
       >
         <option value="1">1 Ürün</option>
         <option value="3">3 Ürün</option>
         <option value="5">5 Ürün</option>
       </select>
-
     </div>
+  
 
     <div class="col-8">
-      <div class="row">
+  
         <div class="alert alert-info" style="opacity: 0.9">
-          <span style="opacity: 1"><b>{{selectedProducts.length}}</b> Ürün Bulundu</span>
+          <span style="opacity: 1"
+            ><b>{{ selectedProducts.length }}</b> Ürün Bulundu</span
+          >
         </div>
-        <div class="col-4 mt-3" *ngFor="let p of products; let i = index">
-          <div class="card" style="width: 18rem">
-            <img
-              src="
-               
-                "
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">{{ i + 1 }} - {{ p.name }}</h5>
-              <p class="card-text">{{ p.description }}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">₺ {{ p.price }}</li>
-              <li class="list-group-item">A second item</li>
-              <li class="list-group-item">A third item</li>
-            </ul>
-            <div class="card-body">
-              <a href="#" class="btn btn-primary btn-sm mx-2">Details</a>
-              <button (click)="addToCart(p)" class="btn btn-primary btn-sm">
-                Add to cart
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <ul class="pagination mt-3">
-        <li class="page-item"><a class="page-link">Önceki</a></li>
-        <li *ngFor="let page of pageNumbers" class="page-item">
-          <a class="page-link" 
-          (click)="changePage(page)"
-          >{{
-            page
-          }}</a>
-        </li>
-        <li class="page-item"><a class="page-link" >Sonraki</a></li>
-      </ul>
-    </div>
+     
+    <product-list [products]="products"></product-list>
+ 
+    <ul class="pagination mt-3">
+      <li class="page-item"><a class="page-link">Önceki</a></li>
+      <li *ngFor="let page of pageNumbers" class="page-item">
+        <a class="page-link" (click)="changePage(page)">{{ page }}</a>
+      </li>
+      <li class="page-item"><a class="page-link">Sonraki</a></li>
+    </ul>
+  </div>
+ 
   </div>
 </div>
