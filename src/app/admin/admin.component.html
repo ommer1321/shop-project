@@ -1,1 +1,19 @@
-<p>admin works!</p>
+<div class="container m-3 ">
+
+    <div class="row">
+        <div class="col-4">
+            <button routerLinkActive="active"  routerLink="/shop"  class="btn btn-outline-success d-block mt-2">Anasayfa</button>
+            <button routerLinkActive="active" routerLink="/admin/main/products" class="btn btn-outline-primary d-block mt-2">Products</button>
+            <button routerLinkActive="active" routerLink="/admin/main/categories" class="btn btn-outline-primary d-block mt-2">Categories</button>
+            <button routerLinkActive="active" routerLink="/admin/main/orders"  class="btn btn-outline-primary d-block mt-2">Orders</button>
+            <button routerLinkActive="active" (click)="authGuard.logout()" class="btn btn-danger d-block mt-2">Logout</button>
+            
+
+        </div>
+
+        <div class="col-8 p-2">
+            
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

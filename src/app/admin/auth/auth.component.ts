@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthGuard } from '../guards/auth.guard';
 
 @Component({
   selector: 'app-auth',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   
 })
 export class AuthComponent {
+  constructor(public authGuard:AuthGuard){ }
 
 }

@@ -5,7 +5,8 @@ import { Observable } from "rxjs";
 @Injectable()
 export class AuthGuard implements CanActivate{
 
-  authService:boolean = false;
+  // Admin Girişi için true olmalıdır bu normalde token ile yapılır ancak ben yapmadım
+  authService:boolean = true;
 
   constructor(
     private router:Router,
@@ -15,7 +16,23 @@ export class AuthGuard implements CanActivate{
 
   }
 
+  
+  logout(){
+console.log('çıkıs yapıldı');
+this.authService = false
+this.router.navigateByUrl('/shop')
 
+  }
+
+
+login(){
+  console.log('giris yapıldı');
+  this.authService = true
+  this.router.navigateByUrl('/admin/main')
+
+  }
+
+  
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
 
     if(!this.authService){
