@@ -21,36 +21,37 @@ export class ProductRepository implements OnInit {
   }
 
   getProducts(category: Category = null): Product[] {
-
-
     if (category) {
-      return this.products.filter(p => p.category == category.id);
-    } else {      
+      return this.products.filter((p) => p.category == category.id);
+    } else {
       return this.products;
     }
   }
 
-  saveProduct(product:Product){
-if(!product.id){
-
-  return this.restService.addProduct(product)
-  .subscribe((product)=>(
-    this.products.push(product)
-    ))
-
-
-  }
-  else{
-
-    return this.restService.updateProduct(product)
-    .subscribe(product=>{
-     this.products.splice(this.products.findIndex(p =>p.id == product.id),1,product);
-    }  )
-
-  }
-      
-
+  saveProduct(product: Product) {
+    if (!product.id) {
+      return this.restService
+        .addProduct(product)
+        .subscribe((product) => this.products.push(product));
+    } else {
+      return this.restService.updateProduct(product).subscribe((product) => {
+        this.products.splice(
+          this.products.findIndex((p) => p.id == product.id),
+          1,
+          product
+        );
+      });
+    }
   }
 
+  deleteProduct(product: Product) {
 
+    return this.restService.deleteProduct(product).subscribe((product) => {
+      this.products.splice(
+        this.products.findIndex((p) => p.id == product.id),
+        1
+      );
+    });
+    
+  }
 }
