@@ -28,4 +28,20 @@ export class RestService {
     return this.http.post<Order>(this.baseUrl+'orders',order); 
 
   }
+
+  addProduct(product:Product):Observable<Product>{
+
+    return  this.http.post<Product>(this.baseUrl+'products',product)
+
+  }
+
+  
+  updateProduct(product:Product):Observable<Product>{
+
+    return  this.http.put<Product>(this.baseUrl+'products/'+product.id,product)
+
+  }
+
+
+  
 }

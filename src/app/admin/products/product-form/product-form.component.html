@@ -1,1 +1,31 @@
-<p>product-form works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>{{editing ? "Ürün Güncelle" : "Ürün Ekle"}}</h3>
+      <hr />
+    <form  #frm="ngForm" (ngSubmit)="submit(frm)" >
+
+
+        
+        <input type="text" class="form-control mt-3" name="name" placeholder="Name" [(ngModel)]="product.name" />
+
+        <input type="text" class="form-control mt-3" name="price"  placeholder="Price" [(ngModel)]="product.price" />
+
+        <input type="text" class="form-control mt-3" name="description" placeholder="Description" [(ngModel)]="product.description" />
+
+        <input type="text" class="form-control mt-3" name="imageUrl" placeholder="Image" [(ngModel)]="product.imageUrl" />
+        
+        <!-- <input
+        type="submit"
+        class="form-control mt-3 btn btn-primary"
+        value="Kaydet"
+        /> -->
+        <button type="submit" class="form-control mt-3 btn btn-primary"
+        >{{editing ? "Ürün Güncelle" : "Ürün Ekle"}}</button>
+        
+        <button  [routerLink]="['/admin/main/products']" class="form-control mt-3 btn btn-danger"
+        >İptal</button>
+    </form>
+    </div>
+  </div>
+</div>

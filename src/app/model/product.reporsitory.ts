@@ -29,4 +29,28 @@ export class ProductRepository implements OnInit {
       return this.products;
     }
   }
+
+  saveProduct(product:Product){
+if(!product.id){
+
+  return this.restService.addProduct(product)
+  .subscribe((product)=>(
+    this.products.push(product)
+    ))
+
+
+  }
+  else{
+
+    return this.restService.updateProduct(product)
+    .subscribe(product=>{
+     this.products.splice(this.products.findIndex(p =>p.id == product.id),1,product);
+    }  )
+
+  }
+      
+
+  }
+
+
 }

@@ -10,6 +10,7 @@ import { ProductFormComponent } from './products/product-form/product-form.compo
 import { OrderListComponent } from './orders/order-list/order-list.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
 import { CategoryFormComponent } from './categories/category-form/category-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +27,11 @@ import { CategoryFormComponent } from './categories/category-form/category-form.
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+
+
   ],
   providers:[
     AuthGuard,

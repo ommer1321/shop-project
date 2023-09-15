@@ -19,7 +19,7 @@ children:[
 
   {path: 'products', component: ProductListComponent},
   {path: 'products/:mode/:id', component: ProductFormComponent},
-  {path: 'products/:mode/', component: ProductFormComponent},
+  {path: 'products/:mode', component: ProductFormComponent},
   
   {path: 'categories', component: CategoryListComponent},
   {path: 'categories/:mode/:id', component: CategoryFormComponent},
