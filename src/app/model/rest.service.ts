@@ -48,5 +48,23 @@ export class RestService {
 
   }
 
+  addCategory(category:Category):Observable<Category>{
+
+    return this.http.post<Category>(this.baseUrl+'categories/',category) 
+
+  }
+
+  updateCategory(category:Category):Observable<Category>{
+
+    return this.http.put<Category>(this.baseUrl+'categories/'+category.id,category)
+  }
+
+
+  deleteCategory(category:Category):Observable<Category>{
+
+    return this.http.delete<Category>(this.baseUrl+'categories/'+category.id)
+
+  }
+
   
 }

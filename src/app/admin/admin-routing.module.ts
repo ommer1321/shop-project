@@ -23,7 +23,7 @@ children:[
   
   {path: 'categories', component: CategoryListComponent},
   {path: 'categories/:mode/:id', component: CategoryFormComponent},
-  {path: 'categories/:mode/', component: CategoryFormComponent},
+  {path: 'categories/:mode', component: CategoryFormComponent},
   
   {path: 'orders', component: OrderListComponent},
 ]
